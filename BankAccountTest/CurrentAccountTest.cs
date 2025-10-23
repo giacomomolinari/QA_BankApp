@@ -17,5 +17,16 @@ namespace BankAccountTest
             Assert.Equal(currentAccount.Balance, balance);
         }
 
+        [Theory]
+        [InlineData(100, 1000)]
+        [InlineData(-100, 100)]
+        public void testDebitToNegValid(decimal balance, decimal amount)
+        {
+            CurrentAccount crtAcc = new CurrentAccount(balance: balance);
+            crtAcc.Debit(amount);
+
+            Assert.Equal(balance - amount, crtAcc.Balance);
+        }
+
     }
 }
