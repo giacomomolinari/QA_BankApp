@@ -28,5 +28,17 @@ namespace BankAccountTest
             Assert.Equal(balance - amount, crtAcc.Balance);
         }
 
+        [Theory]
+        [InlineData(100, 10000)]
+        [InlineData(-100, 1100)]
+        public void testDebitToNegInvalid(decimal balance, decimal amount)
+        {
+            CurrentAccount crtAcc = new CurrentAccount(balance: balance);
+            crtAcc.Debit(amount);
+
+            // does not allow debit below overdraft
+            Assert.Equal(balance, crtAcc.Balance);
+        }
+
     }
 }

@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AccountClassLibrary\AccountClassLibrary.csproj" />
+    <ProjectReference Include="..\TransactionsDBLibrary\TransactionDB.csproj" />
   </ItemGroup>
 
   <ItemGroup>
